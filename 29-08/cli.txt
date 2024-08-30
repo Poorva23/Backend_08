@@ -1,0 +1,444 @@
+Find the data where students have age=22 and mark 80
+Find the students that have marks <= 80 and age <=18
+Find students with grade A++
+
+
+
+
+Microsoft Windows [Version 10.0.22631.4037]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\poorv>mongosh
+Current Mongosh Log ID: 66d1c98cbeeab748042710bb
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.3.0
+Using MongoDB:          7.0.14
+Using Mongosh:          2.3.0
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2024-08-28T15:21:01.366+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+test> show collections
+University
+test> use University
+switched to db University
+University> show collections
+Faculty
+Student
+User
+University> db.Faculty.find()
+[
+  {
+    _id: ObjectId('66cf2ee56650fd33962710c1'),
+    Name: 'Aman',
+    Age: 40,
+    Subject: 'Java',
+    Marks: 70
+  },
+  {
+    _id: ObjectId('66cf2ee56650fd33962710c2'),
+    Name: 'Ajay',
+    Age: 37,
+    Subject: 'Java',
+    Marks: 90
+  },
+  {
+    _id: ObjectId('66cf2ee56650fd33962710c3'),
+    Name: 'Arun',
+    Age: 42,
+    Subject: 'Java',
+    Marks: 70
+  },
+  {
+    _id: ObjectId('66cf2ee56650fd33962710c4'),
+    Name: 'Arav',
+    Age: 39,
+    Subject: 'Java',
+    Marks: 89
+  },
+  {
+    _id: ObjectId('66cf2ee56650fd33962710c5'),
+    Name: 'Anup',
+    Age: 41,
+    Subject: 'Java',
+    Marks: 70
+  },
+  {
+    _id: ObjectId('66cf2f656650fd33962710c6'),
+    Name: 'Pratham',
+    Age: 20,
+    Subject: 'Java',
+    Marks: 70
+  },
+  {
+    _id: ObjectId('66cf2f656650fd33962710c7'),
+    Name: 'Parth',
+    Age: 19,
+    Subject: 'Java',
+    Marks: 90
+  },
+  {
+    _id: ObjectId('66cf2f656650fd33962710c8'),
+    Name: 'Pransh',
+    Age: 18,
+    Subject: 'Java',
+    Marks: 70
+  },
+  {
+    _id: ObjectId('66cf2f656650fd33962710c9'),
+    Name: 'Parv',
+    Age: 18,
+    Subject: 'Java',
+    Marks: 89
+  },
+  {
+    _id: ObjectId('66cf2f656650fd33962710ca'),
+    Name: 'Paras',
+    Age: 17,
+    Subject: 'Java',
+    Marks: 70
+  }
+]
+University> use Faculty
+switched to db Faculty
+Faculty> db.Faculty.deleteOne({ Age: 18 })
+{ acknowledged: true, deletedCount: 0 }
+Faculty> db.Faculty.find()
+
+Faculty> show collections
+
+Faculty> db.Faculty.find()
+
+Faculty> use University
+switched to db University
+University> db.Faculty.find()
+[
+  {
+    _id: ObjectId('66cf2ee56650fd33962710c1'),
+    Name: 'Aman',
+    Age: 40,
+    Subject: 'Java',
+    Marks: 70
+  },
+  {
+    _id: ObjectId('66cf2ee56650fd33962710c2'),
+    Name: 'Ajay',
+    Age: 37,
+    Subject: 'Java',
+    Marks: 90
+  },
+  {
+    _id: ObjectId('66cf2ee56650fd33962710c3'),
+    Name: 'Arun',
+    Age: 42,
+    Subject: 'Java',
+    Marks: 70
+  },
+  {
+    _id: ObjectId('66cf2ee56650fd33962710c4'),
+    Name: 'Arav',
+    Age: 39,
+    Subject: 'Java',
+    Marks: 89
+  },
+  {
+    _id: ObjectId('66cf2ee56650fd33962710c5'),
+    Name: 'Anup',
+    Age: 41,
+    Subject: 'Java',
+    Marks: 70
+  },
+  {
+    _id: ObjectId('66cf2f656650fd33962710c6'),
+    Name: 'Pratham',
+    Age: 20,
+    Subject: 'Java',
+    Marks: 70
+  },
+  {
+    _id: ObjectId('66cf2f656650fd33962710c7'),
+    Name: 'Parth',
+    Age: 19,
+    Subject: 'Java',
+    Marks: 90
+  },
+  {
+    _id: ObjectId('66cf2f656650fd33962710c8'),
+    Name: 'Pransh',
+    Age: 18,
+    Subject: 'Java',
+    Marks: 70
+  },
+  {
+    _id: ObjectId('66cf2f656650fd33962710c9'),
+    Name: 'Parv',
+    Age: 18,
+    Subject: 'Java',
+    Marks: 89
+  },
+  {
+    _id: ObjectId('66cf2f656650fd33962710ca'),
+    Name: 'Paras',
+    Age: 17,
+    Subject: 'Java',
+    Marks: 70
+  }
+]
+University> db.Faculty.deleteOne({ Age: 18 })
+{ acknowledged: true, deletedCount: 1 }
+University> db.Faculty.deleteOne({ Age: 19 })
+{ acknowledged: true, deletedCount: 1 }
+University> db.Faculty.deleteOne({ Age: 20 })
+{ acknowledged: true, deletedCount: 1 }
+University> db.Faculty.deleteOne({ Age: 17 })
+{ acknowledged: true, deletedCount: 1 }
+University> db.Faculty.find()
+[
+  {
+    _id: ObjectId('66cf2ee56650fd33962710c1'),
+    Name: 'Aman',
+    Age: 40,
+    Subject: 'Java',
+    Marks: 70
+  },
+  {
+    _id: ObjectId('66cf2ee56650fd33962710c2'),
+    Name: 'Ajay',
+    Age: 37,
+    Subject: 'Java',
+    Marks: 90
+  },
+  {
+    _id: ObjectId('66cf2ee56650fd33962710c3'),
+    Name: 'Arun',
+    Age: 42,
+    Subject: 'Java',
+    Marks: 70
+  },
+  {
+    _id: ObjectId('66cf2ee56650fd33962710c4'),
+    Name: 'Arav',
+    Age: 39,
+    Subject: 'Java',
+    Marks: 89
+  },
+  {
+    _id: ObjectId('66cf2ee56650fd33962710c5'),
+    Name: 'Anup',
+    Age: 41,
+    Subject: 'Java',
+    Marks: 70
+  },
+  {
+    _id: ObjectId('66cf2f656650fd33962710c9'),
+    Name: 'Parv',
+    Age: 18,
+    Subject: 'Java',
+    Marks: 89
+  }
+]
+University> db.Faculty.deleteOne({ Age: 18 })
+{ acknowledged: true, deletedCount: 1 }
+University> db.Faculty.find()
+[
+  {
+    _id: ObjectId('66cf2ee56650fd33962710c1'),
+    Name: 'Aman',
+    Age: 40,
+    Subject: 'Java',
+    Marks: 70
+  },
+  {
+    _id: ObjectId('66cf2ee56650fd33962710c2'),
+    Name: 'Ajay',
+    Age: 37,
+    Subject: 'Java',
+    Marks: 90
+  },
+  {
+    _id: ObjectId('66cf2ee56650fd33962710c3'),
+    Name: 'Arun',
+    Age: 42,
+    Subject: 'Java',
+    Marks: 70
+  },
+  {
+    _id: ObjectId('66cf2ee56650fd33962710c4'),
+    Name: 'Arav',
+    Age: 39,
+    Subject: 'Java',
+    Marks: 89
+  },
+  {
+    _id: ObjectId('66cf2ee56650fd33962710c5'),
+    Name: 'Anup',
+    Age: 41,
+    Subject: 'Java',
+    Marks: 70
+  }
+]
+University> db.Student.insertMany([{Name:"ZoyUniversity> db.Student.insertMany([{Name:"Zoya", Age: 15, Subject: "Backend", Marks: 70}, {Name:"Zaya", Age: 16, Subject: "Backend", Marks: 70},{Name:"Zina", Age: 17, Subject: "Backend", Marks: 60},{Name:"Zoey", Age: 18, Subject: "Backend", Marks: 80},{Name:"Zara", Age: 19, Subject: "Backend", Marks: 90}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('66d1ce1dbeeab748042710bc'),
+    '1': ObjectId('66d1ce1dbeeab748042710bd'),
+    '2': ObjectId('66d1ce1dbeeab748042710be'),
+    '3': ObjectId('66d1ce1dbeeab748042710bf'),
+    '4': ObjectId('66d1ce1dbeeab748042710c0')
+  }
+}
+University> db.Student.find({ age: 15, mark: 70 })
+
+University> db.Student.find({ Age: 15, Marks: 70 })
+[
+  {
+    _id: ObjectId('66d1ce1dbeeab748042710bc'),
+    Name: 'Zoya',
+    Age: 15,
+    Subject: 'Backend',
+    Marks: 70
+  }
+]
+University> db.Student.find({ Marks: { $lte: 80 }, Age: { $lte: 18 } })
+[
+  {
+    _id: ObjectId('66d1ce1dbeeab748042710bc'),
+    Name: 'Zoya',
+    Age: 15,
+    Subject: 'Backend',
+    Marks: 70
+  },
+  {
+    _id: ObjectId('66d1ce1dbeeab748042710bd'),
+    Name: 'Zaya',
+    Age: 16,
+    Subject: 'Backend',
+    Marks: 70
+  },
+  {
+    _id: ObjectId('66d1ce1dbeeab748042710be'),
+    Name: 'Zina',
+    Age: 17,
+    Subject: 'Backend',
+    Marks: 60
+  },
+  {
+    _id: ObjectId('66d1ce1dbeeab748042710bf'),
+    Name: 'Zoey',
+    Age: 18,
+    Subject: 'Backend',
+    Marks: 80
+  }
+]
+University> db.Stuudent.updateMany({Subject: Backend}, {$set:{Subject: Frontend, Grade: "A++"}})
+ReferenceError: Backend is not defined
+University> db.Stuudent.updateMany({Subject: "Backend"}, {$set:{Subject: Frontend, Grade: "A++"}})
+ReferenceError: Frontend is not defined
+University> db.Stuudent.updateMany({Subject: "Backend"}, {$set:{Subject: "Frontend", Grade: "A++"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 0,
+  modifiedCount: 0,
+  upsertedCount: 0
+}
+University> db.Student.find()
+[
+  {
+    _id: ObjectId('66d1ce1dbeeab748042710bc'),
+    Name: 'Zoya',
+    Age: 15,
+    Subject: 'Backend',
+    Marks: 70
+  },
+  {
+    _id: ObjectId('66d1ce1dbeeab748042710bd'),
+    Name: 'Zaya',
+    Age: 16,
+    Subject: 'Backend',
+    Marks: 70
+  },
+  {
+    _id: ObjectId('66d1ce1dbeeab748042710be'),
+    Name: 'Zina',
+    Age: 17,
+    Subject: 'Backend',
+    Marks: 60
+  },
+  {
+    _id: ObjectId('66d1ce1dbeeab748042710bf'),
+    Name: 'Zoey',
+    Age: 18,
+    Subject: 'Backend',
+    Marks: 80
+  },
+  {
+    _id: ObjectId('66d1ce1dbeeab748042710c0'),
+    Name: 'Zara',
+    Age: 19,
+    Subject: 'Backend',
+    Marks: 90
+  }
+]
+University> db.Student.updateMany({Marks: 90},{$set:{Grade: "A++"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+University> db.Student.find()
+[
+  {
+    _id: ObjectId('66d1ce1dbeeab748042710bc'),
+    Name: 'Zoya',
+    Age: 15,
+    Subject: 'Backend',
+    Marks: 70
+  },
+  {
+    _id: ObjectId('66d1ce1dbeeab748042710bd'),
+    Name: 'Zaya',
+    Age: 16,
+    Subject: 'Backend',
+    Marks: 70
+  },
+  {
+    _id: ObjectId('66d1ce1dbeeab748042710be'),
+    Name: 'Zina',
+    Age: 17,
+    Subject: 'Backend',
+    Marks: 60
+  },
+  {
+    _id: ObjectId('66d1ce1dbeeab748042710bf'),
+    Name: 'Zoey',
+    Age: 18,
+    Subject: 'Backend',
+    Marks: 80
+  },
+  {
+    _id: ObjectId('66d1ce1dbeeab748042710c0'),
+    Name: 'Zara',
+    Age: 19,
+    Subject: 'Backend',
+    Marks: 90,
+    Grade: 'A++'
+  }
+]
+University> db.Student.find({ Grade: "A++" })
+[
+  {
+    _id: ObjectId('66d1ce1dbeeab748042710c0'),
+    Name: 'Zara',
+    Age: 19,
+    Subject: 'Backend',
+    Marks: 90,
+    Grade: 'A++'
+  }
+]
