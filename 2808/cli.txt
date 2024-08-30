@@ -1,0 +1,122 @@
+Please enter a MongoDB connection string (Default: mongodb://localhost/): test
+test Current Mongosh Log ID: 66cf2c6d6550fd33962710bb
+Connecting to: 7.0.14
+mongodb://127.0.0.1:27017/test7directConnection-truekserverSelectionTimeoutHS-2000&appName songosh+2.3.0
+Using MongoDB: Using Mongosh: 2.3.0
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+The server generated these startup warnings when booting mings
+2824-08-28715:21:01.366+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+test> db.createColletion Letson
+test.createColletion
+test> db.createCollection("liniversity")
+[ok: 1]
+test use University
+switched to db University
+University> db.createCollection("user")
+[ok: 1]
+University> db. User. Insert Many([[Name: "Poorva", Age: 20, Subject: "Java", Marks: 703, (Name: "Divyas", Age: 18, Subject: "Java", Marks: 90], [Name: "Ashish", Age: 22, Subject: "Java", Marks: 79], [Name: "Piy ush, Age: 19, Subject: "Java". Marks: 893, Name: "Pransh Age: 21, Subject: "Java", Marlis: 70])
+Uncaught: SyntaxError: Unexpected token, expected" (1:292)
+db.User.insertMany [[[Name: "Poorva", Age, Subject: "Java", Marks: 701, (Name: "Divyam", Age: 13, Subject: "Java", Marles:, (Name: "Ashteh", Age, Subject: "Java", Marks:, (Name: "Plyush", Name: "Pransh Age: 21, Subject: "Java", Marks: 3)
+Ago: 1, Subject: "Java", Marks:
+Sava"
+Marks: 78), [Name: "Divyas", Age: 16, Subject: "Java", Marks: 90), (Nane: "Ashish", Age: 22, Subject: "Java", Marks: 78), (Name: "Pay
+X
+201
+University> db.User.insertMany([[Name: Poorva, Age: 20, Subject:
+ush, Age: 19, Subject: "Java", Marks: 89), (Name: "Pransh", Age: 21, Subject: "Java", Marks: 70}])
+E
+acknowledged: true,
+insertedIds: (
+: ObjectId(166cf2e586650fL33962718bc)
+ObjectId(166cf2e586658fd33962718bd),
+ObjectId(/66cf2e506650fd33962710be)
+ObjectId(66cf2e506650fd339627106f)
+Ubjectidi
+ObjectId(66cf2e506659fd3396271960)
+University> db.createCollection("Faculty")
+[ok: 1]
+University db. Faculty, insert Many([[Nane: "Aman", Age: 40, Subject: Java", Marks: 70], [Nane: "Ajay", Age: 37, Subject: "Java", Marks: 903, (Nano: "Arun", Age: 42, Subject: "Java", Marks: 703, (Name: "Arav
+Age: 39, Subject: "Java", Marks: 89), (Mane: "Anup", Age: 41, Subject: "Java", Marks: 79]])
+acknowledged: true,
+insertedids: [1
+:ObjectId(66ce66fd13962718el),
+
+}
+University> db.createCollection("Student") {ok : 1}
+University Paav, Age: 18, Subject: "Java", Marks: 89), (Name: "Paras, Age: 17, Subject: "Java", Marka: 78]])
+> db. Faculty, inserthany([[Name: "Prathan", Age: 20, Subject: "Java", Marles: 70}, (Nane: "Parth", Age: 19, Subject: "Java", Marks: 90), Diane: "Pransh", Age: 18, Subject: "Java", Marles: 76}, {Name:
+acknowledged: true,
+insertedIds:
+01 ObjectId(66cf2f656650fd339627106'),
+ObjectId(166cf2f656650fd33962730)
+ObjectId("5ef2f656658fd3396271868) ObjectId( 6bcf2f656658fd339677189)
+ObjectId(F24656658Fd33962730ca)
+University show collections
+Faculty Student
+User
+University> db.User.find()
+{
+id: ObjectId( 66cf588658fd33962718bc"),
+Name:
+Poorva,
+Age: 28, Subject: Java
+Marks: 70
+id: ObjectId(66cf2e586650fd33962720bd'),
+Name: Divyan
+Age: 18,
+Subject: Cava Marks: 96
+id: ObjectId(66cf2e566658fd3396271),
+Name: Ashish
+Age: 22,
+Subject: A
+Marks: 70
+id: ObjectId( 66cf2588658fd33962718bf),
+Name: Piyush Age: 19,
+Subject: Java,
+Marks: 00
+id: ObjectId( 66cf2e58665@fd3396271060'),
+Name: Pransh Age: 21,
+Subject: Java
+
+mongosh mongodb://127.0.0. X
++
+X
+University> >db.User.updateMany([Subject: Java], {$set: [Subject: DataScience, address: "Chitkara University'}}) ReferenceError: Java is not defined
+University> db. User-updateMany({Subject: "Java"}, [Sset:(Subject: "DataScience", address: "Chithara University }})
+acknowledged: true,
+insertedId: null,
+matched Count: 5,
+modified Count: 5, upsertedCount:
+}
+University> db. User updateMany([Marks: 90), ($set: (Grade: "A"}}}
+acknowledged: true,
+insertedId: null, natched Count: 1,
+modified Count: 1,
+upserted Count: 8
+University> db. User.find()
+1
+id: ObjectId( 66cf2e55665@fd3362718bc'),
+Age: 28,
+Subject: Datascience,
+Name: Poorva,
+Marks: 70,
+address: Chitkara University
+id: ObjectId("56f2506653362710b),
+Name: Divyan,
+Age: 18,
+Subject: DataScience,
+: 98, Marks
+address: Chitkara Iniversity,
+Grade: A
+id: ObjectId( 66cf2e556658fd33962710be'),
+Name: Ashish,
+Age: 22,
+Subject: Datascience,
+Marks: 78,
+address: Chithara university
+id: ObjectId(66cf2506650339627106)
+Name: Piyush
+Subject: DataScience
+Age: 19,
+Marks: 89,
+address: Chithiara iniversity
