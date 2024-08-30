@@ -1,3 +1,8 @@
+db.col_name.updateOne()
+db.col_name.updateMany()
+db.col_name.findOneAndUpdate()
+db.col_name.replaceOne()
+
 University> db.User.find({marks:{$not:{$eq:90}}})
 [
   {
@@ -565,5 +570,178 @@ University> db.User.find()
     _id: ObjectId('66ceef671561af7f1ad47fcb'),
     date: ISODate('2024-08-28T09:35:35.049Z'),
     address: 'Chitkara University'
+  }
+]
+
+db.col_name.deleteOne()
+db.col_name.deleteMany()
+db.col_name.findOneAndDelete()
+
+Faculty> use University
+switched to db University
+University> db.Faculty.find()
+[
+  {
+    _id: ObjectId('66cf2ee56650fd33962710c1'),
+    Name: 'Aman',
+    Age: 40,
+    Subject: 'Java',
+    Marks: 70
+  },
+  {
+    _id: ObjectId('66cf2ee56650fd33962710c2'),
+    Name: 'Ajay',
+    Age: 37,
+    Subject: 'Java',
+    Marks: 90
+  },
+  {
+    _id: ObjectId('66cf2ee56650fd33962710c3'),
+    Name: 'Arun',
+    Age: 42,
+    Subject: 'Java',
+    Marks: 70
+  },
+  {
+    _id: ObjectId('66cf2ee56650fd33962710c4'),
+    Name: 'Arav',
+    Age: 39,
+    Subject: 'Java',
+    Marks: 89
+  },
+  {
+    _id: ObjectId('66cf2ee56650fd33962710c5'),
+    Name: 'Anup',
+    Age: 41,
+    Subject: 'Java',
+    Marks: 70
+  },
+  {
+    _id: ObjectId('66cf2f656650fd33962710c6'),
+    Name: 'Pratham',
+    Age: 20,
+    Subject: 'Java',
+    Marks: 70
+  },
+  {
+    _id: ObjectId('66cf2f656650fd33962710c7'),
+    Name: 'Parth',
+    Age: 19,
+    Subject: 'Java',
+    Marks: 90
+  },
+  {
+    _id: ObjectId('66cf2f656650fd33962710c8'),
+    Name: 'Pransh',
+    Age: 18,
+    Subject: 'Java',
+    Marks: 70
+  },
+  {
+    _id: ObjectId('66cf2f656650fd33962710c9'),
+    Name: 'Parv',
+    Age: 18,
+    Subject: 'Java',
+    Marks: 89
+  },
+  {
+    _id: ObjectId('66cf2f656650fd33962710ca'),
+    Name: 'Paras',
+    Age: 17,
+    Subject: 'Java',
+    Marks: 70
+  }
+]
+University> db.Faculty.deleteOne({ Age: 18 })
+{ acknowledged: true, deletedCount: 1 }
+University> db.Faculty.deleteOne({ Age: 19 })
+{ acknowledged: true, deletedCount: 1 }
+University> db.Faculty.deleteOne({ Age: 20 })
+{ acknowledged: true, deletedCount: 1 }
+University> db.Faculty.deleteOne({ Age: 17 })
+{ acknowledged: true, deletedCount: 1 }
+University> db.Faculty.find()
+[
+  {
+    _id: ObjectId('66cf2ee56650fd33962710c1'),
+    Name: 'Aman',
+    Age: 40,
+    Subject: 'Java',
+    Marks: 70
+  },
+  {
+    _id: ObjectId('66cf2ee56650fd33962710c2'),
+    Name: 'Ajay',
+    Age: 37,
+    Subject: 'Java',
+    Marks: 90
+  },
+  {
+    _id: ObjectId('66cf2ee56650fd33962710c3'),
+    Name: 'Arun',
+    Age: 42,
+    Subject: 'Java',
+    Marks: 70
+  },
+  {
+    _id: ObjectId('66cf2ee56650fd33962710c4'),
+    Name: 'Arav',
+    Age: 39,
+    Subject: 'Java',
+    Marks: 89
+  },
+  {
+    _id: ObjectId('66cf2ee56650fd33962710c5'),
+    Name: 'Anup',
+    Age: 41,
+    Subject: 'Java',
+    Marks: 70
+  },
+  {
+    _id: ObjectId('66cf2f656650fd33962710c9'),
+    Name: 'Parv',
+    Age: 18,
+    Subject: 'Java',
+    Marks: 89
+  }
+]
+University> db.Faculty.deleteOne({ Age: 18 })
+{ acknowledged: true, deletedCount: 1 }
+University> db.Faculty.find()
+[
+  {
+    _id: ObjectId('66cf2ee56650fd33962710c1'),
+    Name: 'Aman',
+    Age: 40,
+    Subject: 'Java',
+    Marks: 70
+  },
+  {
+    _id: ObjectId('66cf2ee56650fd33962710c2'),
+    Name: 'Ajay',
+    Age: 37,
+    Subject: 'Java',
+    Marks: 90
+  },
+  {
+    _id: ObjectId('66cf2ee56650fd33962710c3'),
+    Name: 'Arun',
+    Age: 42,
+    Subject: 'Java',
+    Marks: 70
+  },
+  {
+    _id: ObjectId('66cf2ee56650fd33962710c4'),
+    Name: 'Arav',
+    Age: 39,
+    Subject: 'Java',
+    Marks: 89
+  },
+  {
+    _id: ObjectId('66cf2ee56650fd33962710c5'),
+    Name: 'Anup',
+    Age: 41,
+    Subject: 'Java',
+    Marks: 70
   }
 ]
