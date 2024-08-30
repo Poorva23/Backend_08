@@ -1,0 +1,569 @@
+University> db.User.find({marks:{$not:{$eq:90}}})
+[
+  {
+    _id: ObjectId('66cee7861561af7f1ad47fbd'),
+    name: 'Divyas',
+    age: 24,
+    subject: 'DataScience',
+    marks: 54,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66cee7961561af7f1ad47fbe'),
+    name: 'Ashish',
+    age: 64,
+    subject: 'DataScience',
+    marks: 84,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66cee7a51561af7f1ad47fbf'),
+    name: 'Piyush',
+    age: 54,
+    subject: 'DataScience',
+    marks: 4,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66cee7c51561af7f1ad47fc0'),
+    name: 'Pransh',
+    age: 44,
+    subject: 'DataScience',
+    marks: 74,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66ceef671561af7f1ad47fcb'),
+    date: ISODate('2024-08-28T09:35:35.049Z'),
+    address: 'Chitkara University'
+  }
+]
+University> db.User.find({$and:{age:22,marks:90}})
+MongoServerError[BadValue]: $and must be an array
+University> db.User.find({$and:[{age:22,marks:90}]})
+[
+  {
+    _id: ObjectId('66cee76e1561af7f1ad47fbc'),
+    name: 'Poorva',
+    age: 22,
+    subject: 'Maths',
+    marks: 90,
+    address: 'Chitkara University',
+    grades: 'A++'
+  }
+]
+University> db.User.find({marks:{$nor:{$eq:90}}})
+MongoServerError[BadValue]: unknown operator: $nor
+University> db.User.find({marks:{$nor:[{$eq:90}]}})
+MongoServerError[BadValue]: unknown operator: $nor
+University> db.User.find({ marks: { $ne: 90 } })
+[
+  {
+    _id: ObjectId('66cee7861561af7f1ad47fbd'),
+    name: 'Divyas',
+    age: 24,
+    subject: 'DataScience',
+    marks: 54,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66cee7961561af7f1ad47fbe'),
+    name: 'Ashish',
+    age: 64,
+    subject: 'DataScience',
+    marks: 84,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66cee7a51561af7f1ad47fbf'),
+    name: 'Piyush',
+    age: 54,
+    subject: 'DataScience',
+    marks: 4,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66cee7c51561af7f1ad47fc0'),
+    name: 'Pransh',
+    age: 44,
+    subject: 'DataScience',
+    marks: 74,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66ceef671561af7f1ad47fcb'),
+    date: ISODate('2024-08-28T09:35:35.049Z'),
+    address: 'Chitkara University'
+  }
+]
+University> db.User.find({$nor:[{marks:{$eq:90}}]})
+[
+  {
+    _id: ObjectId('66cee7861561af7f1ad47fbd'),
+    name: 'Divyas',
+    age: 24,
+    subject: 'DataScience',
+    marks: 54,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66cee7961561af7f1ad47fbe'),
+    name: 'Ashish',
+    age: 64,
+    subject: 'DataScience',
+    marks: 84,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66cee7a51561af7f1ad47fbf'),
+    name: 'Piyush',
+    age: 54,
+    subject: 'DataScience',
+    marks: 4,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66cee7c51561af7f1ad47fc0'),
+    name: 'Pransh',
+    age: 44,
+    subject: 'DataScience',
+    marks: 74,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66ceef671561af7f1ad47fcb'),
+    date: ISODate('2024-08-28T09:35:35.049Z'),
+    address: 'Chitkara University'
+  }
+]
+University> db.User.find({$or:[{marks:{$not:{$eq:90}}}]})
+[
+  {
+    _id: ObjectId('66cee7861561af7f1ad47fbd'),
+    name: 'Divyas',
+    age: 24,
+    subject: 'DataScience',
+    marks: 54,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66cee7961561af7f1ad47fbe'),
+    name: 'Ashish',
+    age: 64,
+    subject: 'DataScience',
+    marks: 84,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66cee7a51561af7f1ad47fbf'),
+    name: 'Piyush',
+    age: 54,
+    subject: 'DataScience',
+    marks: 4,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66cee7c51561af7f1ad47fc0'),
+    name: 'Pransh',
+    age: 44,
+    subject: 'DataScience',
+    marks: 74,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66ceef671561af7f1ad47fcb'),
+    date: ISODate('2024-08-28T09:35:35.049Z'),
+    address: 'Chitkara University'
+  }
+]
+University> db.User.find({$or:[{marks:{$not:{$eq:90}}},{age:{$not:{$eq:54}}}]})
+[
+  {
+    _id: ObjectId('66cee76e1561af7f1ad47fbc'),
+    name: 'Poorva',
+    age: 22,
+    subject: 'Maths',
+    marks: 90,
+    address: 'Chitkara University',
+    grades: 'A++'
+  },
+  {
+    _id: ObjectId('66cee7861561af7f1ad47fbd'),
+    name: 'Divyas',
+    age: 24,
+    subject: 'DataScience',
+    marks: 54,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66cee7961561af7f1ad47fbe'),
+    name: 'Ashish',
+    age: 64,
+    subject: 'DataScience',
+    marks: 84,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66cee7a51561af7f1ad47fbf'),
+    name: 'Piyush',
+    age: 54,
+    subject: 'DataScience',
+    marks: 4,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66cee7c51561af7f1ad47fc0'),
+    name: 'Pransh',
+    age: 44,
+    subject: 'DataScience',
+    marks: 74,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66ceef671561af7f1ad47fcb'),
+    date: ISODate('2024-08-28T09:35:35.049Z'),
+    address: 'Chitkara University'
+  }
+]
+University> db.User.find({$or:[{marks:{$not:{$eq:90}}},{age:{$not:{$eq:54}}}]})
+[
+  {
+    _id: ObjectId('66cee76e1561af7f1ad47fbc'),
+    name: 'Poorva',
+    age: 22,
+    subject: 'Maths',
+    marks: 90,
+    address: 'Chitkara University',
+    grades: 'A++'
+  },
+  {
+    _id: ObjectId('66cee7861561af7f1ad47fbd'),
+    name: 'Divyas',
+    age: 24,
+    subject: 'DataScience',
+    marks: 54,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66cee7961561af7f1ad47fbe'),
+    name: 'Ashish',
+    age: 64,
+    subject: 'DataScience',
+    marks: 84,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66cee7a51561af7f1ad47fbf'),
+    name: 'Piyush',
+    age: 54,
+    subject: 'DataScience',
+    marks: 4,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66cee7c51561af7f1ad47fc0'),
+    name: 'Pransh',
+    age: 44,
+    subject: 'DataScience',
+    marks: 74,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66ceef671561af7f1ad47fcb'),
+    date: ISODate('2024-08-28T09:35:35.049Z'),
+    address: 'Chitkara University'
+  }
+]
+University> db.User.find({$or:[{marks:{$not:{$eq:90}}},{age:{$not:{$eq:54}}}
+...
+University> db.User.find({
+...   $or: [
+...     { marks: { $not: { $eq: 90 } } },
+...     { age: { $not: { $eq: 54 } } }
+...   ]
+... })
+[
+  {
+    _id: ObjectId('66cee76e1561af7f1ad47fbc'),
+    name: 'Poorva',
+    age: 22,
+    subject: 'Maths',
+    marks: 90,
+    address: 'Chitkara University',
+    grades: 'A++'
+  },
+  {
+    _id: ObjectId('66cee7861561af7f1ad47fbd'),
+    name: 'Divyas',
+    age: 24,
+    subject: 'DataScience',
+    marks: 54,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66cee7961561af7f1ad47fbe'),
+    name: 'Ashish',
+    age: 64,
+    subject: 'DataScience',
+    marks: 84,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66cee7a51561af7f1ad47fbf'),
+    name: 'Piyush',
+    age: 54,
+    subject: 'DataScience',
+    marks: 4,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66cee7c51561af7f1ad47fc0'),
+    name: 'Pransh',
+    age: 44,
+    subject: 'DataScience',
+    marks: 74,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66ceef671561af7f1ad47fcb'),
+    date: ISODate('2024-08-28T09:35:35.049Z'),
+    address: 'Chitkara University'
+  }
+]
+University> db.User.find({ $or: [ { marks: { $eq: 90 } }, { age:  { $eq: 54 } }] })
+[
+  {
+    _id: ObjectId('66cee76e1561af7f1ad47fbc'),
+    name: 'Poorva',
+    age: 22,
+    subject: 'Maths',
+    marks: 90,
+    address: 'Chitkara University',
+    grades: 'A++'
+  },
+  {
+    _id: ObjectId('66cee7a51561af7f1ad47fbf'),
+    name: 'Piyush',
+    age: 54,
+    subject: 'DataScience',
+    marks: 4,
+    address: 'Chitkara University'
+  }
+]
+University> db.User.find({ $or: [ { marks: { $ne: 90 } }, { age:  { $ne: 54 } }] })
+[
+  {
+    _id: ObjectId('66cee76e1561af7f1ad47fbc'),
+    name: 'Poorva',
+    age: 22,
+    subject: 'Maths',
+    marks: 90,
+    address: 'Chitkara University',
+    grades: 'A++'
+  },
+  {
+    _id: ObjectId('66cee7861561af7f1ad47fbd'),
+    name: 'Divyas',
+    age: 24,
+    subject: 'DataScience',
+    marks: 54,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66cee7961561af7f1ad47fbe'),
+    name: 'Ashish',
+    age: 64,
+    subject: 'DataScience',
+    marks: 84,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66cee7a51561af7f1ad47fbf'),
+    name: 'Piyush',
+    age: 54,
+    subject: 'DataScience',
+    marks: 4,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66cee7c51561af7f1ad47fc0'),
+    name: 'Pransh',
+    age: 44,
+    subject: 'DataScience',
+    marks: 74,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66ceef671561af7f1ad47fcb'),
+    date: ISODate('2024-08-28T09:35:35.049Z'),
+    address: 'Chitkara University'
+  }
+]
+University> db.User.find({ $or: [ { marks: { $not: 90 } }, { age:  { $not: 54 } }] })
+MongoServerError[BadValue]: $not needs a regex or a document
+University> db.User.find({ $or: [ { marks: { $ne: 90 } }, { age:  { $ne: 54 } }] })
+[
+  {
+    _id: ObjectId('66cee76e1561af7f1ad47fbc'),
+    name: 'Poorva',
+    age: 22,
+    subject: 'Maths',
+    marks: 90,
+    address: 'Chitkara University',
+    grades: 'A++'
+  },
+  {
+    _id: ObjectId('66cee7861561af7f1ad47fbd'),
+    name: 'Divyas',
+    age: 24,
+    subject: 'DataScience',
+    marks: 54,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66cee7961561af7f1ad47fbe'),
+    name: 'Ashish',
+    age: 64,
+    subject: 'DataScience',
+    marks: 84,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66cee7a51561af7f1ad47fbf'),
+    name: 'Piyush',
+    age: 54,
+    subject: 'DataScience',
+    marks: 4,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66cee7c51561af7f1ad47fc0'),
+    name: 'Pransh',
+    age: 44,
+    subject: 'DataScience',
+    marks: 74,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66ceef671561af7f1ad47fcb'),
+    date: ISODate('2024-08-28T09:35:35.049Z'),
+    address: 'Chitkara University'
+  }
+]
+University> db.User.find({ $not: [ { marks: { $eq: 90 } }, { age:  { $eq: 54 } }] })
+MongoServerError[BadValue]: unknown top level operator: $not. If you are trying to negate an entire expression, use $nor.
+University> db.User.find({ $nor: [ { marks: { $eq: 90 } }, { age:  { $eq: 54 } }] })
+[
+  {
+    _id: ObjectId('66cee7861561af7f1ad47fbd'),
+    name: 'Divyas',
+    age: 24,
+    subject: 'DataScience',
+    marks: 54,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66cee7961561af7f1ad47fbe'),
+    name: 'Ashish',
+    age: 64,
+    subject: 'DataScience',
+    marks: 84,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66cee7c51561af7f1ad47fc0'),
+    name: 'Pransh',
+    age: 44,
+    subject: 'DataScience',
+    marks: 74,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66ceef671561af7f1ad47fcb'),
+    date: ISODate('2024-08-28T09:35:35.049Z'),
+    address: 'Chitkara University'
+  }
+]
+University> db.User.findOneAndUpdate({name:"Poorva"},$set:{age:20,subject:"English",marks:91,address:"Chandigarh University"})
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:45)
+
+> 1 | db.User.findOneAndUpdate({name:"Poorva"},$set:{age:20,subject:"English",marks:91,address:"Chandigarh University"})
+    |                                              ^
+  2 |
+
+University> db.User.findOneAndUpdate({name:"Poorva"},{$set:{age:20,subject:"English",marks:91,address:"Chandigarh University"}})
+{
+  _id: ObjectId('66cee76e1561af7f1ad47fbc'),
+  name: 'Poorva',
+  age: 22,
+  subject: 'Maths',
+  marks: 90,
+  address: 'Chitkara University',
+  grades: 'A++'
+}
+University> db.User.findOneAndUpdate({name:'Poorva'},{$set:{age:20,subject:'English',marks:91,address:'Chandigarh University'}})
+{
+  _id: ObjectId('66cee76e1561af7f1ad47fbc'),
+  name: 'Poorva',
+  age: 20,
+  subject: 'English',
+  marks: 91,
+  address: 'Chandigarh University',
+  grades: 'A++'
+}
+University> db.User.replaceOne({name:"Poorva"},{$set:{name:"Parag"}})
+MongoInvalidArgumentError: Replacement document must not contain atomic operators
+University> db.User.replaceOne({name:"Poorva"},{name:"Parag"})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+University> db.User.findOne({name:"Parag"})
+{ _id: ObjectId('66cee76e1561af7f1ad47fbc'), name: 'Parag' }
+University> db.Uer.find()
+
+University> db.User.find()
+[
+  { _id: ObjectId('66cee76e1561af7f1ad47fbc'), name: 'Parag' },
+  {
+    _id: ObjectId('66cee7861561af7f1ad47fbd'),
+    name: 'Divyas',
+    age: 24,
+    subject: 'DataScience',
+    marks: 54,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66cee7961561af7f1ad47fbe'),
+    name: 'Ashish',
+    age: 64,
+    subject: 'DataScience',
+    marks: 84,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66cee7a51561af7f1ad47fbf'),
+    name: 'Piyush',
+    age: 54,
+    subject: 'DataScience',
+    marks: 4,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66cee7c51561af7f1ad47fc0'),
+    name: 'Pransh',
+    age: 44,
+    subject: 'DataScience',
+    marks: 74,
+    address: 'Chitkara University'
+  },
+  {
+    _id: ObjectId('66ceef671561af7f1ad47fcb'),
+    date: ISODate('2024-08-28T09:35:35.049Z'),
+    address: 'Chitkara University'
+  }
+]
